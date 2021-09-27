@@ -13,6 +13,17 @@
     "scripts": {
         "debug": "node scripts/debug.js"
     },
+    "keywords": [
+        "svg",
+        "fixer",
+        "skia-canvas",
+        "puppet-canvas",
+        "canvas"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/oslllo/svg-fixer.git"
+    },
     "dependencies": {
         "cli-progress": "^3.9.1",
         "colors": "^1.4.0",
