@@ -1,6 +1,6 @@
 {
-    "name": "svgFixer",
-    "version": "0.0.1",
+    "name": "svgfixer",
+    "version": "1.0.0",
     "description": "Svg stroke",
     "author": "Vagner Silva",
     "license": "MIT",
