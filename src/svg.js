@@ -380,7 +380,7 @@ class Svg {
             await ctx.drawImage(im, 0, 0);
 
             var uri = await canvas.toDataURL(mime);
-            close();
+            await close();
 
             if (base64) {
                 uri = uri.replace(new RegExp(`^data:${mime};base64,`), '');
