@@ -1,6 +1,6 @@
 {
     "name": "svgfixer",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "Svg stroke",
     "author": "Vagner Silva",
     "license": "MIT",
@@ -15,9 +15,9 @@
     },
     "keywords": [
         "svg",
-        "fixer",
+        "fix",
+        "stroke",
         "skia-canvas",
-        "puppet-canvas",
         "canvas"
     ],
     "repository": {
@@ -31,7 +31,7 @@
         "jimp": "^0.16.1",
         "jsdom": "^17.0.0",
         "oslllo-validator": "^2.0.1",
-        "puppet-canvas": "^0.1.0",
+        "resvg-node": "^0.1.2",
         "skia-canvas": "^0.9.25",
         "yargs": "^17.2.1"
     },

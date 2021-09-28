@@ -1,9 +1,10 @@
 const fs = require('fs');
 const fg = require('fast-glob');
 const Potrace = require('./potrace/index');
-const { createCanvas, close, loadImage } = require('puppet-canvas');
 const is = require('oslllo-validator');
 const { JSDOM } = require('jsdom');
+const { render } = require('resvg-node');
+const { Canvas, loadImage } = require('skia-canvas');
 const error = require('./error');
 const Options2 = require('./option2');
 const Processor2 = require('./processor2');
@@ -364,23 +365,15 @@ class Svg {
         var base64 = options.base64;
         var svg = this.html;
         var dimensions = this.svg.dimensions();
-        const encoded = encodeURIComponent(svg)
-            .replace(/'/g, '%27')
-            .replace(/"/g, '%22');
-        const header = 'data:image/svg+xml,';
-        const encodedHeader = header + encoded;
         return new Promise(async (resolve, reject) => {
-            var canvas = await createCanvas(
-                dimensions.width,
-                dimensions.height
-            );
-            var ctx = await canvas.getContext('2d');
-            var im = await loadImage(encodedHeader, canvas);
+            var canvas = new Canvas(dimensions.width, dimensions.height);
+            var ctx = canvas.getContext('2d');
 
-            await ctx.drawImage(im, 0, 0);
+            var png = render(svg.trim());
+            var img = await loadImage(png);
+            ctx.drawImage(img, 0, 0);
 
-            var uri = await canvas.toDataURL(mime);
-            await close();
+            var uri = await canvas.toDataURL('png');
 
             if (base64) {
                 uri = uri.replace(new RegExp(`^data:${mime};base64,`), '');
