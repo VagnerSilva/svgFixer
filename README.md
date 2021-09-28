@@ -1,6 +1,7 @@
 # svgFixer
 
-**Svg Fixer** is a copy and paste of the [ oslllo-svg-fixer](https://docs.oslllo.com/svg-fixer/master/#/) project that doesn't use the "canvas" dependency.
+**Svg Fixer** is a copy and paste of the [ oslllo-svg-fixer](https://docs.oslllo.com/svg-fixer/master/#/) project that doesn't use the "canvas" dependency.With "skia-canvas" as an alternative
+
 ```
 Usage: npx svgfixer [source] [destination] [options]
 
